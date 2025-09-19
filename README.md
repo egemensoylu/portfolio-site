@@ -46,8 +46,7 @@ python3 -m http.server
 ---
 ## 📸 Preview
 
--- Add screenshots or short demo videos here:
--- docs/preview.png / docs/preview.mp4
+![Website Preview](https://github.com/egemensoylu/portfolio-site/blob/main/preview/preview.png?raw=true)
 
 
 ## 🗺️ Project Structure (example)
