@@ -1,0 +1,443 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-light-bg);
+    color: var(--color-black);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    /*font-size: clamp(16px, 2vw, 20px);*/
+    position: relative;
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 153, 0, .15) 0%, rgba(0, 0, 0, .2) 65%, rgba(0, 0, 0, 1) 100%);
+    pointer-events: none;
+    z-index: 9999;
+}
+
+container {
+    max-width: 1000px;
+}
+
+section {
+    padding: 4rem 1rem;
+    margin: 0 auto;
+    border-bottom: 2px solid var(--color-black);
+}
+
+
+
+.viewport-frame {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 0;
+    position: relative;
+    /* veya varsa header yüksekliği */
+}
+
+
+
+.viewport-frame section {
+    scroll-snap-align: start;
+    min-height: 80vh;
+    box-sizing: border-box;
+    padding: 0;
+    border-radius: 25px;
+    border: 10px solid;
+    background-color: var(--color-white);
+    overflow: hidden;
+}
+
+
+
+.section-title {
+    opacity: 0;
+    transform: translateY(50px);
+    font-family: var(--font-title);
+}
+
+.section-description {
+    opacity: 0;
+    transform: translateY(50px);
+    font-family: var(--font-display);
+}
+
+.section-content {
+    opacity: 0;
+}
+
+.section-wrapper {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    margin: 0 auto;
+    background-color: var(--color-black);
+    padding: 0 8vw;
+}
+
+
+#projects.section-wrapper {
+    overflow: visible;
+}
+
+.letterbox.top {
+    top: 0;
+}
+
+.letterbox.bottom {
+    bottom: 0;
+}
+
+.letterbox {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    background: var(--color-black);
+    z-index: 10000;
+}
+
+
+.viewport-frame {
+    max-width: 100%;
+    width: 100%;
+    height: calc(100vh - 20vh);
+    margin: 10vh 0;
+    overflow-y: auto;
+}
+
+.viewport-frame::-webkit-scrollbar {
+    width: 0px;
+}
+
+.about-layout {
+    display: flex;
+    align-items: flex-start;
+    /* üstten hizala */
+    gap: 2rem;
+    /* foto ile yazı arası boşluk */
+}
+
+
+
+.about p {
+    font-size: 1.3rem;
+    max-width: 100%;
+    margin: 1vw;
+}
+
+
+
+.about-photo {
+    float: left;
+    width: 20vw;
+    margin-right: 1.5em;
+}
+
+
+.about-photo>img {
+    width: 100%;
+}
+
+.about>article {
+    padding: 1em;
+}
+
+
+/* projects-container yatay dizilir */
+.projects-container {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 70vh;
+}
+
+
+/* #projects section full screen görünsün */
+.projects {
+    position: relative;
+    height: 76vh;
+    overflow: hidden;
+    /* dikeyde taşmasın */
+    background: #111;
+    /* örnek */
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+
+footer {
+    padding: 2rem;
+    text-align: center;
+    border-top: 3px solid var(--color-sweden-blue);
+    font-size: 0.9rem;
+    color: var(--color-white);
+    letter-spacing: 1px;
+}
+
+
+.content-logo {
+    display: block;
+    width: 30vw;
+    height: auto;
+}
+
+.kinetic-title {
+    background: lightseagreen;
+    border-radius: 2vw;
+}
+
+
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    display: block;
+}
+
+
+.video-wrapper {
+    position: relative;
+    width: 84vw;
+    height: 79vh;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    width: 84vw;
+    height: 79vh;
+    overflow: hidden;
+}
+
+.video-wrapper-vertical {
+    width: 100%;
+    height: 100vh;
+    /* tam ekran yüksekliği */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    /* kenarlarda boşluk olursa siyah görünsün */
+    overflow: hidden;
+}
+
+.about-video {
+    height: 82%;
+    /* ekran yüksekliğini doldursun */
+    width: auto;
+    /* oranı koruyarak genişlik ayarlansın */
+    object-fit: contain;
+    display: block;
+}
+
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.social-links a {
+    font-size: 2.5rem;
+    color: var(--color-white);
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+    color: var(--color-sweden-yellow);
+}
+
+
+
+
+
+
+
+
+/* --- Base theme (dark, typographic) --- */
+.about-this-site {
+    --bg: #0b0b0c;
+    --fg: #eaeaf0;
+    --muted: #a9a9b6;
+    --accent: #7df9ff;
+    /* neon-cyan */
+    --accent-2: #ff3f8e;
+    /* neon-magenta */
+    --accent-3: #ffd166;
+    /* warm highlight */
+    --stroke: #ffffff;
+    background-color: var(--bg) !important;
+    color: var(--fg);
+    padding: clamp(24px, 4vw, 80px);
+    line-height: 1.3;
+    letter-spacing: .01em;
+}
+
+/* Title: big, blocky, slightly aggressive */
+.section-title {
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: .95;
+    font-size: clamp(28px, 6vw, 64px);
+    margin: 0 0 .6em;
+    display: grid;
+    gap: .2em;
+}
+
+.section-title .shout {
+    display: inline-block;
+}
+
+.section-title .shout {
+    color: var(--fg);
+}
+
+.section-title .shout.alt {
+    color: var(--muted);
+}
+
+/* Paragraphs */
+.section-content {
+    max-width: 70ch;
+    font-size: clamp(16px, 1.8vw, 20px);
+    margin: 0 0 1.2em;
+    color: var(--fg);
+}
+
+.section-content.lead {
+    font-size: clamp(18px, 2vw, 22px);
+}
+
+/* Emphasis tokens */
+.kw.emph {
+    font-weight: 900;
+    letter-spacing: .02em;
+}
+
+.kw.mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+.kw.big {
+    font-weight: 800;
+    font-size: 1.05em;
+}
+
+.kw.lab {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+/* Era numbers: 1999 / 2099 get conceptual size & color */
+.era {
+    font-weight: 900;
+    display: inline-block;
+    transform-origin: left bottom;
+}
+
+.era.old {
+    color: var(--muted);
+    transform: scale(1.05);
+}
+
+.era.future {
+    color: var(--accent);
+    text-shadow: 0 0 .35em color-mix(in oklab, var(--accent) 65%, transparent);
+    transform: scale(1.12);
+}
+
+/* Outline words (retro–neo brutalism / kinetic typography) */
+.outline {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--stroke);
+    text-stroke: 1px var(--stroke);
+    letter-spacing: .03em;
+}
+
+@media (min-width: 900px) {
+    .outline {
+        -webkit-text-stroke-width: 1.5px;
+        text-stroke-width: 1.5px;
+    }
+}
+
+/* Badge words (pure, performant, unopinionated) */
+.badge {
+    display: inline-block;
+    padding: .08em .35em;
+    margin: 0 .05em;
+    border: 2px solid var(--accent-3);
+    border-radius: .4em;
+    background: linear-gradient(180deg, rgba(255, 209, 102, 0.18), rgba(255, 209, 102, 0.06));
+    box-shadow: 0 .2em .6em rgba(255, 209, 102, .12) inset;
+}
+
+/* Stroke (hollow) + subtle jitter on hover for kinetic feel */
+.stroke {
+    position: relative;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--accent-2);
+    text-stroke: 1px var(--accent-2);
+    transition: filter .2s, transform .2s;
+}
+
+.stroke:hover {
+    filter: drop-shadow(0 0 .35em color-mix(in oklab, var(--accent-2) 60%, transparent));
+    transform: translateY(-1px);
+}
+
+/* Glow word */
+.glow {
+    color: var(--accent-2);
+    text-shadow: 0 0 .5em color-mix(in oklab, var(--accent-2) 60%, transparent);
+    font-weight: 800;
+}
+
+/* Evolve word with gentle underline + micro-anim on hover */
+.evolve {
+    background:
+        linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat;
+    transition: background-size .35s ease, color .2s ease;
+    padding-bottom: .05em;
+    font-weight: 900;
+}
+
+.evolve:hover {
+    color: var(--accent);
+    background-size: 100% 2px;
+}
+
+/* Small motion preference respect */
+@media (prefers-reduced-motion: reduce) {
+
+    .stroke:hover,
+    .evolve:hover {
+        transform: none;
+    }
+
+    .evolve {
+        transition: none;
+    }
+
+    .stroke {
+        transition: none;
+    }
+}

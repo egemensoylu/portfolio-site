@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Retro-Neo Site</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=VT323&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Plaster&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <container>
+        <div class="film-overlay">
+            <div class="left-film">
+                <svg class="film-mask" xmlns="http://www.w3.org/2000/svg" width="6vw" height="100%"
+                    preserveAspectRatio="none">
+                    <defs>
+                        <pattern id="holes" width="6vw" height="6vw" patternUnits="userSpaceOnUse">
+                            <rect x="0" y="0" width="6vw" height="4vw" rx="1.2vw" ry="1.2vw" fill="#C0C0C0" />
+                        </pattern>
+                    </defs>
+                    <rect x="0" y="0" width="6vw" height="100%" fill="url(#holes)" />
+                </svg>
+            </div>
+            <div class="right-film">
+                <svg class="film-mask" xmlns="http://www.w3.org/2000/svg" width="6vw" height="100%"
+                    preserveAspectRatio="none">
+                    <rect x="0" y="0" width="6vw" height="100%" fill="url(#holes)" />
+                </svg>
+            </div>
+        </div>
+        </div>
+        <div class="letterbox top">
+            <div class="header-logo-wrapper">
+                <div class="header-logo"><img src="assets/logo-small.png"></div>
+            </div>
+            <nav class="header-nav">
+                <a href="#hero" data-full="HOME"><span class="char">H</span></a>
+                <a href="#about" data-full="ABOUT"><span class="char">A</span></a>
+                <a href="#project-zero" data-full="PROJECTS"><span class="char">P</span></a>
+                <a href="#contact" data-full="CONTACT"><span class="char">C</span></a>
+            </nav>
+        </div>
+        </div>
+
+        <div class="viewport-frame">
+            <!-- Noise Layers -->
+            <div class="noise-layers">
+                <div class="noise-overlay noise-layer-1"></div>
+                <div class="noise-overlay noise-layer-2"></div>
+                <div class="noise-overlay noise-layer-3"></div>
+                <div class="noise-overlay noise-layer-4"></div>
+                <div class="noise-overlay noise-layer-5"></div>
+            </div>
+            <div class="section-wrapper">
+                <section id="hero" class="hero">
+                    <div class="kinetic-title visible"><img class="content-logo" src="assets/logo.png" /></div>
+                    <p>A clean foundation for a retro–neo brutalist experiment: bold typography, a dark aesthetic, and
+                        unapologetic contrasts. This site is the starting point of a personal portfolio that blends
+                        design, code, and storytelling.
+                        Soon (or late) it will evolve into something more kinetic—where visuals move, interactions
+                        surprise, and every detail feels alive.</p>
+                    <button class="scroll-down-button" onclick="location.href='#about'"> ↓ </button>
+                </section>
+            </div>
+
+
+            <div class="section-wrapper">
+                <section id="about" class="projects">
+                    <button class="unmute-button" data-target="video-about">🔊 Tap to unmute</button>
+                    <div class="video-wrapper-vertical">
+                        <video id="video-about" autoplay muted loop playsinline class="about-video">
+                            <source src="assets/videos/about2.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <button class="scroll-down-button" onclick="location.href='#site'"> ↓ </button>
+                </section>
+                <div class="video-project-description">
+                    <article class="about-block">
+                        <ul>
+                            <li><strong>Web</strong>: minimal, brutalist, type-heavy websites with smooth
+                                micro-interactions and purposeful motion.</li>
+                            <li><strong>Motion & Video</strong>: AI-assisted visuals, editing, and compositing.
+                            </li>
+                            <li><strong>Graphics & Layout</strong>: grid systems, SVG and canvas experiments.
+                            </li>
+                            <li><strong>Music & Sound</strong>: composing, arranging, and sound design.</li>
+                        </ul>
+                    </article>
+                    <p>
+                        I’m a creative developer working at the intersection of code, design, and
+                        storytelling.
+                        My work blends retro aesthetics with modern web tech—minimal layouts, brutalist
+                        edges,
+                        and typographic rhythm—so that interaction, motion, and copy read like a narrative.
+                    </p>
+                    <p>
+                        I’m a husband and a father. When I’m not coding, I’m usually fixing or making
+                        something— tuning an old Volvo XC70, building home/garden projects, or crafting practical
+                        solutions in the woods.
+                    </p>
+                </div>
+
+            </div>
+
+
+
+            <div class="section-wrapper">
+                <section id="site" class="about about-this-site">
+                    <h2 class="section-title title-about">About this Site</h2>
+                    <h3 class="section-title">
+                        <span class="shout">No frameworks. No libraries.</span>
+                    </h3>
+
+                    <p class="section-content lead">
+                        Just <span class="kw emph">HTML</span>, <span class="kw emph">CSS</span>, and a little bit of
+                        <span class="kw mono">Vanilla&nbsp;JS</span>.
+                        This project is intentionally stripped down to the basics—
+                        <span class="badge">pure</span>, <span class="badge">performant</span>, and <span
+                            class="badge">unopinionated</span>.
+                        It’s built like it’s <span class="era old">1999</span>, when the web was still raw and personal.
+                        And yet, it’s styled like it’s <span class="era future">2099</span>, with a futuristic edge that
+                        leans into
+                        <span class="outline">retro–neo brutalism</span> and <span class="outline">kinetic
+                            typography</span>.
+                    </p>
+
+                    <p class="section-content">
+                        This site is my <span class="stroke">digital playground</span>: a place to present who I am,
+                        the projects I’ve worked on, and the ideas I want to share.
+                        At its core, it’s a portfolio—<span class="kw big">a simple stage</span> where I can collect and
+                        showcase
+                        design, code, video, and experiments. But it’s also a <span class="kw lab">lab</span>, where I
+                        test new
+                        approaches to interaction and aesthetics, exploring how minimal tools can produce maximal
+                        impact.
+                    </p>
+
+                    <p class="section-content">
+                        Over time, it will grow into more than just a portfolio. A <span class="glow">blog</span>
+                        section will join in,
+                        giving space for longer thoughts—about technology, art, music, and the messy process of
+                        creating.
+                        This site isn’t meant to be static; it’s meant to <span class="evolve">expand, shift, and
+                            evolve</span>—like the work it represents.
+                    </p>
+
+                    <button class="scroll-down-button" onclick="location.href='#project-zero'"> ↓ </button>
+                </section>
+            </div>
+
+
+            <div class="section-wrapper">
+                <section id="project-zero" class="projects">
+                    <button class="unmute-button" data-target="video-1">🔊 Tap to unmute</button>
+                    <div class="video-wrapper">
+                        <video id="video-1" autoplay muted loop playsinline class="background-video">
+                            <source src="assets/videos/hic.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <button class="scroll-down-button" onclick="location.href='#project-mesaj'"> ↓ </button>
+                </section>
+                <div class="video-project-description">
+                    <h3>Hiç - Nothing</h3>
+                    <p>A spoken-word piece blending poetic rhythm and minimalist flow, layered over an
+                        abstract audiovisual landscape.
+                        Written, performed, and visualized by me</p>
+                    <p>This is a hybrid piece — part spoken word, part motion design.
+                        The text flows over a rhythmic, ambient soundscape, carrying elements of poetry
+                        and
+                        rap, yet belonging fully to neither.
+                        Every word is written, voiced, and visually composed by me.
+
+                        It's not a music video, not a poem, not a lyric — but something in between.
+
+                        Headphones? Nice, but your laptop speakers will probably survive too.</p>
+                    <div class="social-icons">
+                        <a href="https://youtu.be/lw9OvqLfg2Y" target="_blank" title="Egemen Soylu - Hiç"
+                            class="youtube-icon">
+                            <i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="section-wrapper">
+                <section id="project-mesaj" class="projects">
+                    <button class="unmute-button" data-target="video-2">🔊 Tap to unmute</button>
+                    <div class="video-wrapper">
+                        <video id="video-2" autoplay muted loop playsinline class="background-video">
+                            <source src="assets/videos/mesaj.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <button class="scroll-down-button" onclick="location.href='#project-tekyolmuzik'"> ↓ </button>
+                </section>
+                <div class="video-project-description">
+                    <h3>Mesaj - Message</h3>
+                    <p>This is my very first experiment with AI-generated visuals — both still and moving.
+                        A summer-scented, golden-toned music video for "Mesaj" by Duygu Soylu — who also
+                        happens to be my sister :)
+
+                        From concept to execution, everything you see is AI-crafted, directed, and assembled
+                        by me.
+                        It’s a dreamy, shimmering landscape where music meets machine imagination.
+
+                        Not a traditional music video, not fully animation — something in between.
+
+                    </p>
+                    <p>The visuals are generated, but the emotion is real.
+                        AI doesn’t feel the sun. But this song made it dream of summer anyway.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.youtube.com/watch?v=Q_Fczj1KBV0" target="_blank"
+                            title="Duygu Soylu - Mesaj" class="youtube-icon">
+                            <i class="fab fa-youtube"></i></a>
+                        <a href="https://open.spotify.com/track/2Wt2dkE7lBnT62e2FpHnSe?si=fd069b1adb4840c1"
+                            target="_blank" title="Duygu Soylu - Mesaj" class="spotify-icon">
+                            <i class="fab fa-spotify"></i></a>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="section-wrapper">
+                <section id="project-tekyolmuzik" class="projects">
+                    <button class="unmute-button" data-target="video-3">🔊 Tap to unmute</button>
+                    <div class="video-wrapper">
+                        <video id="video-3" autoplay muted loop playsinline class="background-video">
+                            <source src="assets/videos/tekyolmuzik.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <button class="scroll-down-button" onclick="location.href='#contact'"> ↓ </button>
+                </section>
+                <div class="video-project-description">
+                    <h3>Tek Yol Müzik - One Way > Music</h3>
+                    <p>A short kinetic typography video I made over 12 years ago for the intro of the rap track Tek Yol
+                        Müzik. The song is fire—rap fans should definitely check it out.</p>
+                    <p>Made as a shout-out to Kamufle and Red, experimenting with gravity-like effects in After Effects
+                        without using Newton.</p>
+                    <div class="social-icons">
+                        <a href="https://youtu.be/nE9YIqtOxio" target="_blank" title="Red & Kamufle - Tek Yol Müzik"
+                            class="youtube-icon">
+                            <i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="section-wrapper">
+                <section id="contact">
+                    <h2 class="section-title title-contact">Contact</h2>
+
+                    <div class="contact-icons" role="list">
+                        <a class="contact-item youtube" href="https://youtube.com/@ameximes" target="_blank"
+                            title="YouTube" role="listitem">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                            <span class="label">YouTube — @ameximes</span>
+                        </a>
+
+                        <a class="contact-item instagram" href="https://instagram.com/egemensoylu" target="_blank"
+                            title="Instagram" role="listitem">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                            <span class="label">Instagram — @egemensoylu</span>
+                        </a>
+
+                        <a class="contact-item x" href="https://x.com/ameximes" target="_blank" title="X (Twitter)"
+                            role="listitem">
+                            <i class="fab fa-x-twitter" aria-hidden="true"></i>
+                            <span class="label">X — @ameximes</span>
+                        </a>
+
+                        <a class="contact-item vimeo" href="https://vimeo.com/esoylu" target="_blank" title="Vimeo"
+                            role="listitem">
+                            <i class="fab fa-vimeo-v" aria-hidden="true"></i>
+                            <span class="label">Vimeo — /esoylu</span>
+                        </a>
+
+                        <a class="contact-item linkedin" href="https://linkedin.com/in/egemen-soylu-aa951840/"
+                            target="_blank" title="LinkedIn" role="listitem">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                            <span class="label">LinkedIn — Egemen Soylu</span>
+                        </a>
+
+                        <a class="contact-item email" href="mailto:egemensoylu@gmail.com" title="Email" role="listitem">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span class="label">Email — egemensoylu@gmail.com</span>
+                        </a>
+                    </div>
+                </section>
+
+
+            </div>
+
+
+
+            <footer>
+                &copy; 2025 My Retro-Neo Site. All rights reserved.
+            </footer>
+
+        </div>
+
+        <div class="letterbox bottom"></div>
+
+
+
+        <!-- External JS -->
+        <script src="scripts.js"></script>
+
+
+    </container>
+</body>
+
+</html>

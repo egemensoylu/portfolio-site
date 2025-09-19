@@ -1,0 +1,33 @@
+.section-title {
+    font-size: 12vw;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    line-height: 0.8em;
+}
+
+h3 {
+    font-size: 3vw;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2em;
+    margin: 1vw;
+}
+
+h1.section-title {
+    font-size: 12vw;
+}
+
+h2.section-title {
+    font-size: 10vw;
+}
+
+h3.section-title {
+    font-size: 6vw;
+    font-family: var(--font-subtitle);
+}
+
+h4.section-title {
+    font-size: 4vw;
+}

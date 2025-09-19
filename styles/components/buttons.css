@@ -1,0 +1,191 @@
+.cta-button {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background-color: var(--color-turkey-red);
+    color: var(--color-white);
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+    font-weight: 700;
+    opacity: 1;
+}
+
+.cta-button:hover {
+    transform: translateY(5px) scale(1.05);
+}
+
+
+
+.scroll-down-button {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    border: none;
+    font-size: 3rem;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+    transition: transform 0.3s ease;
+    z-index: 10000;
+}
+
+.scroll-down-button:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+
+.unmute-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 6px;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.unmute-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+
+
+.social-icons {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+    z-index: 2;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 5em;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+
+/* Container = dikey liste */
+.contact-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* Tüm satır tıklanabilir, alt çizgi yok */
+.contact-icons a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Satır stili */
+.contact-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+/* Hover’da hafif hareket + arka plan */
+.contact-item:hover {
+    transform: translateX(4px);
+    background: rgba(0, 0, 0, 0.04);
+    /* koyu temada istersen değiştir */
+}
+
+/* İkon + metin */
+.contact-item i {
+    font-size: 2rem;
+    line-height: 1;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-item:hover i {
+    transform: scale(1.05);
+}
+
+.contact-item .label {
+    font-size: 1rem;
+    line-height: 1.25;
+    /* istersen: font-weight: 500; */
+    word-break: break-word;
+}
+
+/* Platform renkleri — SATIR hover’ında ikon renklensin */
+.contact-item.youtube:hover i {
+    color: #FF0000;
+}
+
+/* YouTube */
+.contact-item.instagram:hover i {
+    color: #E1306C;
+}
+
+/* Instagram */
+.contact-item.x:hover i {
+    color: #1DA1F2;
+}
+
+/* X/Twitter */
+.contact-item.vimeo:hover i {
+    color: #1AB7EA;
+}
+
+/* Vimeo */
+.contact-item.linkedin:hover i {
+    color: #0077B5;
+}
+
+/* LinkedIn */
+.contact-item.email:hover i {
+    color: #444444;
+}
+
+/* Email nötr */
+
+/* Küçük ekranlarda daha sıkı ikon */
+@media (max-width: 480px) {
+    .contact-item {
+        grid-template-columns: 40px 1fr;
+    }
+
+    .contact-item i {
+        font-size: 1.6rem;
+    }
+}
+
+/* (Opsiyonel) karanlık temada hover arka plan */
+@media (prefers-color-scheme: dark) {
+    .contact-item:hover {
+        background: rgba(255, 255, 255, 0.06);
+    }
+}

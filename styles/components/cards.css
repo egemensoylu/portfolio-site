@@ -1,0 +1,156 @@
+.project-card:hover {
+    transform: scale(1.01);
+    box-shadow: 8px 8px 0px var(--color-turkey-red);
+}
+
+
+.project-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-sweden-yellow);
+    text-transform: uppercase;
+}
+
+
+
+
+.project-card p {
+    font-size: 1rem;
+    color: white;
+    font-family: 'VT323';
+}
+
+
+.project-description {
+    padding: 0 1vw;
+    font-size: 1.2rem;
+    color: var(--color-white);
+    margin: 0.5rem 0;
+}
+
+
+.video-project-description {
+    padding: 0 1vw;
+    font-size: .8rem;
+    color: var(--color-white);
+    margin: 0.5rem 0;
+    z-index: 1000;
+    display: block;
+    position: absolute;
+    bottom: 6vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 84vw;
+}
+
+.project-content {
+    font-size: 1.2rem;
+    color: var(--color-white);
+    margin: 0.5rem 0;
+}
+
+
+
+/* === GRID === */
+.projects-container {
+    /* Kartlar min genişlik buldukça 1→2→3 sütuna geçer */
+    --min: 320px;
+    /* 280–360 arası deneyebilirsin */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--min), 1fr));
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+/* === KART === */
+.project-card {
+    /* TAM EKRAN ZORLAMALARINI KALDIR */
+    width: auto;
+    /* eski: 65vw */
+    min-width: 0;
+    /* eski: 100vw */
+    height: auto;
+    /* eski: 25vh */
+    flex: initial;
+    /* eski: 0 0 auto */
+
+    /* Görsel stilin kalsın */
+    background-color: var(--color-sweden-blue);
+    border: 3px solid var(--color-sweden-yellow);
+    box-shadow: 6px 6px 0 var(--color-turkey-red);
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    color: #fff;
+
+    /* İç düzen: dikey akış + nefes */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 8px 10px 0 var(--color-turkey-red);
+}
+
+/* Başlık ve metin */
+.project-card h3 {
+    margin: 0 0 4px;
+    font-size: clamp(1.1rem, 1vw + 1rem, 1.6rem);
+}
+
+.project-card p {
+    margin: 0;
+    line-height: 1.45;
+    font-size: 0.95rem;
+}
+
+
+
+.background-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* taşmadan doldurur */
+}
+
+/* Unmute butonu: kart içinde video üstü */
+.unmute-button {
+    position: absolute;
+    z-index: 2;
+    right: 10px;
+    top: 10px;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+    border: 2px solid var(--color-sweden-yellow);
+    background: #0008;
+    color: #fff;
+    border-radius: 8px;
+    backdrop-filter: blur(2px);
+    cursor: pointer;
+}
+
+/* Butonun konumlanması için kartı göreli yap */
+.project-card {
+    position: relative;
+}
+
+/* Küçük ekranlarda tek sütun zaten çalışır.
+   İstersen üst aralıkları biraz açalım */
+@media (min-width: 900px) {
+    .projects-container {
+        gap: 20px;
+    }
+}
+
+/* Büyük ekranlarda satır uzunluğunu çok açmamak için (opsiyonel) */
+@media (min-width: 1400px) {
+    .projects-container {
+        max-width: 1300px;
+    }
+}

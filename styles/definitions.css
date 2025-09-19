@@ -1,0 +1,20 @@
+:root {
+    --color-turkey-red: #E30A17;
+    --color-sweden-yellow: #FFCD00;
+    --color-sweden-blue: #005EB8;
+    --color-black: #000000;
+    --color-dark-font: #393939;
+    --color-white: #FFFFFF;
+    --color-light-bg: #FAFAFA;
+    --color-dark-bg: #E6E6E6;
+    --color-header-highlight: #008b8b;
+    --color-about-highlight: #ccc922;
+    --color-projects-highlight: #b1027c;
+    --color-contact-highlight: #0ca2dd;
+    --font-display: 'Inter', sans-serif;
+    --font-display: 'VT323', sans-serif;
+    --font-title: 'Oswald', sans-serif;
+    --font-subtitle: 'VT323', sans-serif;
+    --font-nav: 'VT323', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
