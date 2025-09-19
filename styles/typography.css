@@ -20,12 +20,12 @@ h1.section-title {
 }
 
 h2.section-title {
-    font-size: 10vw;
+    font-size: 6vw;
 }
 
 h3.section-title {
-    font-size: 6vw;
-    font-family: var(--font-subtitle);
+    font-size: 4vw;
+    font-family: var(--font-terminal);
 }
 
 h4.section-title {

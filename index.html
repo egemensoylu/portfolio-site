@@ -4,26 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Retro-Neo Site</title>
+    <title>.:: egemen soylu ::.</title>
 
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=VT323&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Plaster&display=swap"
-        rel="stylesheet">
+    <!-- 1) Font Awesome ana CSS -->
+    <link rel="stylesheet" href="/assets/fonts/fa/css/all.min.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 2) PRELOAD (opsiyonel ama iyi): yollar CSS ile birebir aynı olsun -->
+    <link rel="preload" href="/assets/fonts/fa/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/fa/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="preload" href="/assets/fonts/google/Inter-Variable.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/fonts/google/Inter-Variable-Italic.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/fonts/google/Oswald-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+
+    <style>
+        /* --- Font Awesome: YENİ DİZİNE GÖRE YOL OVERRIDE --- */
+        @font-face {
+            font-family: "Font Awesome 6 Free";
+            font-style: normal;
+            font-weight: 900;
+            /* solid */
+            font-display: block;
+            src: url("/assets/fonts/fa/fa-solid-900.woff2") format("woff2");
+        }
+
+        @font-face {
+            font-family: "Font Awesome 6 Brands";
+            font-style: normal;
+            font-weight: 400;
+            /* brands */
+            font-display: block;
+            src: url("/assets/fonts/fa/fa-brands-400.woff2") format("woff2");
+        }
+
+        /* Sınıf eşleştirme (FA6) */
+        .fa,
+        .fas,
+        .fa-solid {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+
+        .fab,
+        .fa-brands {
+            font-family: "Font Awesome 6 Brands";
+            font-weight: 400;
+        }
+
+        /* --- Lokal Inter & Oswald variable fontlar --- */
+        @font-face {
+            font-family: 'Inter';
+            src: url('/assets/fonts/google/Inter-Variable.ttf') format('truetype-variations');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
+            font-optical-sizing: auto;
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            src: url('/assets/fonts/google/Inter-Variable-Italic.ttf') format('truetype-variations');
+            font-weight: 100 900;
+            font-style: italic;
+            font-display: swap;
+            font-optical-sizing: auto;
+        }
+
+        @font-face {
+            font-family: 'Oswald';
+            src: url('/assets/fonts/google/Oswald-VariableFont_wght.ttf') format('truetype-variations');
+            font-weight: 200 700;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+
+
 
     <!-- External CSS -->
     <link rel="stylesheet" href="styles/main.css">
+
+
+
 </head>
 
 <body>
     <container>
         <div class="film-overlay">
             <div class="left-film">
-                <svg class="film-mask" xmlns="http://www.w3.org/2000/svg" width="6vw" height="100%"
+                <svg class="film-mask" xmlns="https://www.w3.org/2000/svg" width="6vw" height="100%"
                     preserveAspectRatio="none">
                     <defs>
                         <pattern id="holes" width="6vw" height="6vw" patternUnits="userSpaceOnUse">
@@ -34,7 +103,7 @@
                 </svg>
             </div>
             <div class="right-film">
-                <svg class="film-mask" xmlns="http://www.w3.org/2000/svg" width="6vw" height="100%"
+                <svg class="film-mask" xmlns="https://www.w3.org/2000/svg" width="6vw" height="100%"
                     preserveAspectRatio="none">
                     <rect x="0" y="0" width="6vw" height="100%" fill="url(#holes)" />
                 </svg>
@@ -78,7 +147,6 @@
 
             <div class="section-wrapper">
                 <section id="about" class="projects">
-                    <button class="unmute-button" data-target="video-about">🔊 Tap to unmute</button>
                     <div class="video-wrapper-vertical">
                         <video id="video-about" autoplay muted loop playsinline class="about-video">
                             <source src="assets/videos/about2.mp4" type="video/mp4" />
@@ -111,6 +179,16 @@
                         something— tuning an old Volvo XC70, building home/garden projects, or crafting practical
                         solutions in the woods.
                     </p>
+
+                    <div class="social-icons">
+                        <a href="#" class="icon unmute-toggle" data-target="video-about" role="button"
+                            aria-label="Unmute video" title="Unmute">
+                            <i class="fa-solid fa-volume-xmark" aria-hidden="true"></i>
+                        </a>
+
+                    </div>
+
+
                 </div>
 
             </div>
@@ -167,7 +245,6 @@
 
             <div class="section-wrapper">
                 <section id="project-zero" class="projects">
-                    <button class="unmute-button" data-target="video-1">🔊 Tap to unmute</button>
                     <div class="video-wrapper">
                         <video id="video-1" autoplay muted loop playsinline class="background-video">
                             <source src="assets/videos/hic.mp4" type="video/mp4" />
@@ -194,6 +271,12 @@
                         <a href="https://youtu.be/lw9OvqLfg2Y" target="_blank" title="Egemen Soylu - Hiç"
                             class="youtube-icon">
                             <i class="fab fa-youtube"></i></a>
+
+                        <a href="#" class="icon unmute-toggle" data-target="video-1" role="button"
+                            aria-label="Unmute video" title="Unmute">
+                            <i class="fa-solid fa-volume-xmark" aria-hidden="true"></i>
+                        </a>
+
                     </div>
                 </div>
 
@@ -202,7 +285,6 @@
 
             <div class="section-wrapper">
                 <section id="project-mesaj" class="projects">
-                    <button class="unmute-button" data-target="video-2">🔊 Tap to unmute</button>
                     <div class="video-wrapper">
                         <video id="video-2" autoplay muted loop playsinline class="background-video">
                             <source src="assets/videos/mesaj.mp4" type="video/mp4" />
@@ -234,6 +316,13 @@
                         <a href="https://open.spotify.com/track/2Wt2dkE7lBnT62e2FpHnSe?si=fd069b1adb4840c1"
                             target="_blank" title="Duygu Soylu - Mesaj" class="spotify-icon">
                             <i class="fab fa-spotify"></i></a>
+                        <a href="#" class="icon unmute-toggle" data-target="video-2" role="button"
+                            aria-label="Unmute video" title="Unmute">
+                            <i class="fa-solid fa-volume-xmark" aria-hidden="true"></i>
+                        </a>
+
+
+
                     </div>
 
                 </div>
@@ -244,7 +333,6 @@
 
             <div class="section-wrapper">
                 <section id="project-tekyolmuzik" class="projects">
-                    <button class="unmute-button" data-target="video-3">🔊 Tap to unmute</button>
                     <div class="video-wrapper">
                         <video id="video-3" autoplay muted loop playsinline class="background-video">
                             <source src="assets/videos/tekyolmuzik.mp4" type="video/mp4" />
@@ -263,6 +351,15 @@
                         <a href="https://youtu.be/nE9YIqtOxio" target="_blank" title="Red & Kamufle - Tek Yol Müzik"
                             class="youtube-icon">
                             <i class="fab fa-youtube"></i></a>
+
+                        <a href="#" class="icon unmute-toggle" data-target="video-3" role="button"
+                            aria-label="Unmute video" title="Unmute">
+                            <i class="fa-solid fa-volume-xmark" aria-hidden="true"></i>
+                        </a>
+
+
+
+
                     </div>
                 </div>
 

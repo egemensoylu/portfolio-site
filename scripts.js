@@ -204,82 +204,82 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==============================
     // 7) Video ses aç/kapa butonları
     // ==============================
-    const unmuteButtons = document.querySelectorAll('.unmute-button');
 
-    unmuteButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const targetId = button.getAttribute('data-target');
-            const video = document.getElementById(targetId);
+    function muteAllVideosAndSync() {
+        // Tüm videoları mute et
+        document.querySelectorAll('video').forEach(v => { v.muted = true; });
 
-            if (video) {
-                if (video.muted) {
-                    video.muted = false;
-                    video.volume = 1.0;
-                    button.innerHTML = '🔇 mute';
-                } else {
-                    video.muted = true;
-                    button.innerHTML = '🔊 unmute';
-                }
+        // Tüm toggle ikonlarını 'mute' durumuna getir
+        document.querySelectorAll('.unmute-toggle').forEach(link => {
+            const vid = document.getElementById(link.dataset.target);
+            syncUnmuteIcon(link, vid);
+        });
+    }
+
+
+    function syncUnmuteIcon(link, video) {
+        const icon = link.querySelector('i');
+        if (!icon) return;
+        const isMuted = (video?.muted !== false); // muted veya video yoksa: muted say
+        if (isMuted) {
+            icon.classList.remove('fa-volume-high');
+            icon.classList.add('fa-volume-xmark');
+            link.setAttribute('aria-label', 'Unmute video');
+            link.title = 'Unmute';
+            link.setAttribute('aria-pressed', 'false');
+        } else {
+            icon.classList.remove('fa-volume-xmark');
+            icon.classList.add('fa-volume-high');
+            link.setAttribute('aria-label', 'Mute video');
+            link.title = 'Mute';
+            link.setAttribute('aria-pressed', 'true');
+        }
+    }
+
+
+    // 8) Section değişince otomatik MUTE
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            // Yalnızca video barındıran section'larda tetikle (isteğe bağlı filtre)
+            if (!entry.target.querySelector('video')) return;
+
+            // Yeni bölüme girdik → hepsini mute et + ikonları güncelle
+            muteAllVideosAndSync();
+        });
+    }, {
+        // Sizin scroll konteyneriniz .viewport-frame ise kök onu yapalım;
+        // değilse root: null kalsın (window scroll).
+        root: viewport || null,
+        threshold: 0.6,          // bölümün ~%60'ı görünür olunca tetikle
+        rootMargin: '0px 0px 0px 0px'
+    });
+
+    // Gözlemlenecek section'ları bağla
+    document.querySelectorAll('section').forEach(sec => sectionObserver.observe(sec));
+
+    document.querySelectorAll('.unmute-toggle').forEach(link => {
+        const video = document.getElementById(link.dataset.target);
+        syncUnmuteIcon(link, video);
+
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const vid = document.getElementById(link.dataset.target);
+            if (!vid) return;
+
+            // user gesture -> sesi aç/kapa
+            if (vid.muted) {
+                vid.muted = false;
+                vid.volume = 1.0;
+            } else {
+                vid.muted = true;
             }
+            syncUnmuteIcon(link, vid);
         });
     });
 
-    // ==============================
-    // 8) #project section’da özel yatay scroll
-    // ==============================
-    const projectsSection = document.getElementById('projects');
-    const projectsContainer = projectsSection?.querySelector('.projects-container');
 
-    let inHorizontalMode = false;
 
-    if (projectsSection && projectsContainer && viewport) {
 
-        function isProjectsInView() {
-            const containerRect = viewport.getBoundingClientRect();
-            const sectionRect = projectsSection.getBoundingClientRect();
-
-            const sectionTopRelative = sectionRect.top - containerRect.top;
-            const sectionBottomRelative = sectionRect.bottom - containerRect.top;
-
-            return (
-                sectionTopRelative < viewport.clientHeight &&
-                sectionBottomRelative > 0
-            );
-        }
-
-        // viewport scroll'unu dinle
-        viewport.addEventListener('scroll', () => {
-            if (isProjectsInView()) {
-                if (!inHorizontalMode) {
-                    console.log("✅ Yatay moda geçildi!");
-                    inHorizontalMode = true;
-                }
-            } else {
-                if (inHorizontalMode) {
-                    console.log("⬆️ Yatay moddan çıkıldı");
-                    inHorizontalMode = false;
-                }
-            }
-        }, { passive: true });
-
-        // wheel event → yatay moddaysa dikeyi engelle
-        viewport.addEventListener('wheel', (e) => {
-            if (!inHorizontalMode) return;
-
-            e.preventDefault(); // dikey scroll'u durdur
-            projectsContainer.scrollLeft += 100;
-
-            const maxScrollLeft = projectsContainer.scrollWidth - projectsContainer.clientWidth;
-
-            // Yatay scroll bitince moddan çık
-            if (projectsContainer.scrollLeft <= 0 && e.deltaY < 0) {
-                inHorizontalMode = false;
-                console.log("⬆️ Başa geldik → dikeye dön");
-            }
-            if (projectsContainer.scrollLeft >= maxScrollLeft && e.deltaY > 0) {
-                inHorizontalMode = false;
-                console.log("⬇️ Sona geldik → dikeye dön");
-            }
-        }, { passive: false });
-    }
 });

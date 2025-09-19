@@ -18,7 +18,7 @@ nav a {
     font-size: 6vh;
     position: relative;
     transition: color 0.3s, opacity 0.3s;
-    font-family: var(--font-nav);
+    font-family: var(--font-terminal);
     font-weight: 400;
     font-style: normal;
 }
