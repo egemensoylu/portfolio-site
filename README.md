@@ -1,23 +1,24 @@
-# egemensoylu.com 🌍
+# egemensoylu.com — Cinematic Scroll Experience 🎬
 
-A personal portfolio and creative hub for [Egemen Soylu](https://egemensoylu.com).  
-The website showcases projects across music, film, design, and software development — built with **raw HTML, CSS, and vanilla JS** for maximum control and simplicity.
+A film-like, scroll-driven portfolio for **Egemen Soylu**. Each section is a full-screen scene with lateral/vertical transitions, parallax layers, and subtle sound cues. Built with **raw HTML/CSS/JS** for tight control.
 
----
+## ✨ Core Features
+- 🎥 **Full-bleed, page-per-scene videos** (hero sequences per section)
+- 🌀 **Scroll orchestration** with IntersectionObserver + rAF
+- 🧭 **Lateral + vertical transitions** and parallax depth
+- 🔊 Optional **sound cues** synced to scene thresholds
+- 📱 **Responsive** layouts, film-grade typography & motion
 
-## ✨ Features
+## 🧩 Tech & Patterns
+- **Vanilla** HTML/CSS/JS (no heavy framework)
+- **IntersectionObserver** for scene entry/exit
+- **requestAnimationFrame** for smooth parallax
+- **Lazy loading** (`loading="lazy"`, `preload`/`preconnect`)
+- Video formats: **MP4 (H.264)** + **WebM** fallbacks
+- Deploy: **S3 + CloudFront** (cache, range requests, CORS)
 
-- 🎨 **Minimalist Design** — clean layout with a cinematic visual style  
-- 📂 **Projects Showcase** — music videos, software, art experiments  
-- 📞 **Contact Section** — direct links to social media and email  
-- 📱 **Responsive Layout** — optimized for desktop and mobile  
-- ⚡ **Lightweight** — no frameworks, just raw HTML/CSS/JS  
-
----
-
-## 🚀 Getting Started
-
-Clone the repository:
-
+## 🚀 Local Dev
 ```bash
-git clone https://github.com/egemensoylu/egemensoylu.com.git
+git clone https://github.com/egemensoylu/portfolio-site.git
+cd portfolio-site
+python3 -m http.server
